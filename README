@@ -1,0 +1,71 @@
+# Aplicação Java com API REST para Gerenciamento de customers
+
+## Introdução
+
+Neste projeto, desenvolvemos uma aplicação em Java que oferece uma API REST para realizar operações de cadastro, alteração, exclusão e consulta de customers. A aplicação utiliza as melhores práticas de desenvolvimento, seguindo os padrões de arquitetura REST para garantir eficiência, escalabilidade e facilidade de integração.
+
+## Tecnologias Utilizadas
+
+- **Java:** A linguagem de programação principal, conhecida por sua portabilidade e robustez.
+- **Spring Boot:** Framework que facilita a criação de aplicativos Java, proporcionando configuração mínima e maior produtividade.
+- **Spring Data JPA:** Facilita a interação com o banco de dados, proporcionando uma camada de abstração sobre a persistência de dados.
+- **Hibernate:** Framework ORM (Object-Relational Mapping) utilizado para mapear objetos Java para o banco de dados relacional.
+- **RESTful API:** Implementação de uma arquitetura de serviços web RESTful para comunicação entre sistemas.
+
+## Funcionalidades
+
+### 1. Cadastro de customers
+
+A API permite o cadastro fácil e rápido de novos customers. Os dados são enviados por meio de requisições HTTP, seguindo o método POST, e são validados para garantir a integridade dos dados armazenados.
+
+Exemplo de requisição para cadastrar um cliente:
+
+```http
+POST /api/customers
+Content-Type: application/json
+
+{
+  "nome": "Brunno Silva",
+  "email": "brunno.silva@email.com",
+  "telefone": "+55 11 1234-5678"
+}
+```
+
+### 2. Alteração de customers
+
+A aplicação permite a atualização de informações de customers já cadastrados. As requisições são feitas utilizando o método PUT, garantindo a atualização completa ou parcial dos dados conforme necessário.
+
+Exemplo de requisição para alterar o e-mail de um cliente:
+
+```http
+PUT /api/customers/{id}
+Content-Type: application/json
+
+{
+  "email": "brunno.novo@email.com"
+}
+```
+
+### 3. Consulta de customers
+
+A API disponibiliza endpoints para a consulta de customers, permitindo a recuperação de informações específicas ou listagem completa. As requisições podem ser feitas utilizando os métodos GET.
+
+Exemplo de requisição para consultar um cliente pelo ID:
+
+```http
+GET /api/customers/{id}
+```
+
+### 4. Exclusão de customers
+
+Para remover um cliente do sistema, a aplicação disponibiliza um endpoint utilizando o método DELETE.
+
+Exemplo de requisição para excluir um cliente pelo ID:
+
+```http
+DELETE /api/customers/{id}
+```
+
+## Conclusão
+
+Com essa aplicação em Java e a API REST desenvolvida, temos uma solução flexível e eficiente para gerenciamento de customers. A utilização de tecnologias como Spring Boot e Hibernate proporciona uma base sólida, enquanto a arquitetura REST garante a interoperabilidade e a facilidade de integração com outros sistemas. Essa aplicação é um exemplo prático de como a tecnologia Java pode ser empregada para criar soluções modernas e escaláveis.
