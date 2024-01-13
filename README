@@ -6,11 +6,6 @@ In this project, we developed a Java application that offers a REST API to perfo
 
 ## Technologies Used
 
-- **Java:** The main programming language, known for its portability and robustness.
-- **Spring Boot:** Framework that facilitates the creation of Java applications, providing minimal configuration and increased productivity.
-- **Spring Data JPA:** Facilitates interaction with the database, providing an abstraction layer over data persistence.
-- **Hibernate:** ORM (Object-Relational Mapping) framework used to map Java objects to the relational database.
-- **RESTful API:** Implementation of a RESTful web services architecture for communication between systems.
 
 ## Features
 
