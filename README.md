@@ -25,8 +25,8 @@ POST /api/customers
 Content-Type: application/json
 
 {
-  "name": "Brunno Doe",
-  "email": "brunno.doe@email.com",
+  "name": "Brunno silva",
+  "email": "brunno.silva@email.com",
   "phone": "+55 11 1234-5678"
 }
 ```
