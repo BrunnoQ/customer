@@ -3,6 +3,7 @@ package com.bqs.customerapi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +24,7 @@ public class CustomerController {
      * @return The ResponseEntity containing the created customer.
      */
     @PostMapping
-    public ResponseEntity<CustomerDto> create(CustomerDto customerDto) {
+    public ResponseEntity<CustomerDto> create(@RequestBody CustomerDto customerDto) {
         return ResponseEntity.ok(customerService.create(customerDto));
     }
     
