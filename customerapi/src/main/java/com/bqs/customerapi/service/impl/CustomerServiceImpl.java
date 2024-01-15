@@ -34,7 +34,8 @@ public class CustomerServiceImpl implements CustomerService {
         //TODO: Implement validation of fields
         CustomerEntity customerEntity = customerMapper.toEntity(customerDto);
         customerEntity = customerRepository.save(customerEntity);
-        return customerMapper.toDto(customerEntity);
+        CustomerDto createdCustomerDto = customerMapper.toDto(customerEntity);
+        return createdCustomerDto;
     }
     
 }
