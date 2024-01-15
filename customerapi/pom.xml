@@ -13,7 +13,7 @@
 
 	<groupId>com.bqs</groupId>
 	<artifactId>customerapi</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.3</version>
 	<name>customerapi</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -30,6 +30,9 @@
 		<sprint-boot-starter-data-jpa.version>3.2.1</sprint-boot-starter-data-jpa.version>
 		<spring-boot-starter-web.version>3.2.1</spring-boot-starter-web.version>
 		<h2.version>2.2.224</h2.version>
+		<java-fluent-validator.version>1.9.3</java-fluent-validator.version>
+		<maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
+		<jacoco.version>0.8.7</jacoco.version>
 	</properties>
 
 	<!-- BUILDS -->
@@ -82,6 +85,54 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${jacoco.version}</version>
+				<executions>
+					<execution>
+						<id>prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<!-- sets the path to the file which contains the execution data -->
+							<dataFile>target/jacoco.exec</dataFile>
+							<!-- sets the output directory for the code coverage report -->
+							<outputDirectory>target/reports</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<systemPropertyVariables>
+						<jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
+					</systemPropertyVariables>
+					<excludes>
+						<exclude>**/dto/**</exclude>
+						<exclude>**/entity/**</exclude>
+						<exclude>**/exception/**</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -115,6 +166,16 @@
 			<artifactId>h2</artifactId>
 			<version>${h2.version}</version>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.github.mvallim</groupId>
+			<artifactId>java-fluent-validator</artifactId>
+			<version>${java-fluent-validator.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${mapstruct.processor.version}</version>
 		</dependency>
 	</dependencies>
 
